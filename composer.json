@@ -1,0 +1,25 @@
+{
+    "name": "mvlabs/zf2-multilanguage",
+    "description": "MVLabs multilanguage module for ZF2",
+    "license": "MIT",
+    "keywords": [
+        "zf2",
+        "multilanguage",
+        "internationalization"
+    ],
+    "authors": [
+        {
+            "name": "Marco Perone",
+            "email": "m.perone@mvlabs.it"
+        }
+    ],
+    "homepage": "",
+    "require": {
+        "php": ">=5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MvLabs\\Multilanguage\\": "src/"
+        }
+    }
+}
