@@ -2,63 +2,63 @@
 
 namespace MvLabs\Multilanguage\Service;
 
-use Zend\Mvc\I18n\Translator;
+use MvLabs\Multilanguage\Exception\LanguageRangeNotDetectedException;
+use MvLabs\Multilanguage\Detector\LanguageDetectorInterface;
 
-class LanguageService
+use Zend\Mvc\I18n\Translator;
+use Zend\EventManager\EventManagerInterface;
+
+class LanguageService implements LanguageServiceInterface
 {
     /**
-     * @var Zend\Mvc\I18n\Translator
+     * @var Zend\Mvc\I18n\Translator $translator
      */
     private $translator;
 
     /**
-     * @var Multilanguage\Service\DetectLocaleService
+     * @var MvLabs\Multilanguage\Detector\LanguageDetectorInterface $languageDetector
      */
-    private $localeService;
+    private $languageDetector;
 
-    public function __construct(Translator $translator, DetectLocaleService $localeService)
-    {
+    /**
+     * @var Zend\EventManager\EventManagerInterface $eventManager
+     */
+    private $eventManager;
+
+    public function __construct(
+        Translator $translator,
+        LanguageDetectorInterface $languageDetector,
+        EventManagerInterface $eventManager
+    ) {
         $this->translator = $translator;
-        $this->localeService = $localeService;
+        $this->languageDetector = $languageDetector;
+        $this->eventManager = $eventManager;
     }
 
     /**
-     * select the appropriate locale to be used according to the received request
-     * 
-     * @param Zend\Http\PhpEnvironment\Request
+     * @inheritdoc
      */
-    public function setLocaleFromRequest($request)
+    public function setLanguageFromRequest($request)
     {
-        $locale = $this->localeService->getLocaleFromUri($request->getUri());
+        try {
+            $languageRange = $this->languageDetector->detectLanguageRange($request);
 
-        if (!$locale) {
-            $this->localeService->getLocaleFromHeaders($request->getHeaders());
-        }
-
-        if ($locale) {
-            $this->translator->setLocale($locale);
+            $this->translator->setLocale($languageRange->defaultLocale());
+        } catch (LanguageRangeNotDetectedException $e) {
+            // we throw an event if somebody wants to react on it
+            $this->eventManager->trigger(
+                'multilanguage.language_range_not_detected',
+                $this,
+                ['request' => $request]
+            );
         }
     }
 
     /**
-     * returns the used instance of the translator
-     * 
-     * @return Zend\Mvc\I18n\Translator
+     * @inheritdoc
      */
     public function getTranslator()
     {
         return $this->translator;
-    }
-
-    /**
-     * retrieves and returns the language used by the application form the
-     * used locale
-     * 
-     * @return string two-characters format
-     */
-    public function getLanguage()
-    {
-        $locale = $this->translator->getLocale();
-        return strtok($locale, '_');
     }
 }

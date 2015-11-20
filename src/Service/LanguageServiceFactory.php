@@ -16,8 +16,13 @@ class LanguageServiceFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $translatorService = $serviceLocator->get('MvcTranslator');
-        $localeService = $serviceLocator->get('DetectLocaleService');
+        $languageDetector = $serviceLocator->get('LanguageDetector');
+        $eventManager = $serviceLocator->get('Application')->getEventManager();
 
-        return new LanguageService($translatorService, $localeService);
+        return new LanguageService(
+            $translatorService,
+            $languageDetector,
+            $eventManager
+        );
     }
 }
