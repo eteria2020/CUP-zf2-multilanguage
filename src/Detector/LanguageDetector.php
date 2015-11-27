@@ -1,10 +1,10 @@
 <?php
 
-namespace MvLabs\Multilanguage\Detector;
+namespace MvLabsMultilanguage\Detector;
 
-use MvLabs\Multilanguage\LanguageRange\LanguageRange;
-use MvLabs\Multilanguage\Exception\LanguageRangeNotDetectedException;
-use MvLabs\Multilanguage\Event\DetectLanguageEventFactory;
+use MvLabsMultilanguage\LanguageRange\LanguageRange;
+use MvLabsMultilanguage\Exception\LanguageRangeNotDetectedException;
+use MvLabsMultilanguage\Event\DetectLanguageEventFactory;
 
 use Zend\Http\Request;
 use Zend\EventManager\EventManagerInterface;

@@ -1,8 +1,8 @@
 <?php
 
-namespace MvLabs\Multilanguage\LanguageRange;
+namespace MvLabsMultilanguage\LanguageRange;
 
-use MvLabs\Multilanguage\Exception\InvalidLanguageException;
+use MvLabsMultilanguage\Exception\InvalidLanguageException;
 
 class LanguageRange implements LanguageRangeInterface
 {

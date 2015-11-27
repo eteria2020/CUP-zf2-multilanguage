@@ -1,9 +1,9 @@
 <?php
 
-namespace MvLabs\Multilanguage\Service;
+namespace MvLabsMultilanguage\Service;
 
-use MvLabs\Multilanguage\Exception\LanguageRangeNotDetectedException;
-use MvLabs\Multilanguage\Detector\LanguageDetectorInterface;
+use MvLabsMultilanguage\Exception\LanguageRangeNotDetectedException;
+use MvLabsMultilanguage\Detector\LanguageDetectorInterface;
 
 use Zend\Mvc\I18n\Translator;
 use Zend\EventManager\EventManagerInterface;
@@ -16,7 +16,7 @@ class LanguageService implements LanguageServiceInterface
     private $translator;
 
     /**
-     * @var MvLabs\Multilanguage\Detector\LanguageDetectorInterface $languageDetector
+     * @var MvLabsMultilanguage\Detector\LanguageDetectorInterface $languageDetector
      */
     private $languageDetector;
 

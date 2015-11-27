@@ -1,6 +1,6 @@
 <?php
 
-namespace MvLabs\Multilanguage\Detector\Listener;
+namespace MvLabsMultilanguage\Detector\Listener;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

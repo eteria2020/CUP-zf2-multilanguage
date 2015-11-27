@@ -1,6 +1,6 @@
 <?php
 
-namespace MvLabs\Multilanguage\Detector;
+namespace MvLabsMultilanguage\Detector;
 
 use Zend\Http\Request;
 
@@ -12,8 +12,8 @@ interface LanguageDetectorInterface
      * thrown
      *
      * @param Zend\Http\Request
-     * @return MvLabs\Multilanguage\LanguageRange\LanguageRangeInterface
-     * @throws MvLabs\Multilanguage\Exception\LanguageRangeNotDetectedException
+     * @return MvLabsMultilanguage\LanguageRange\LanguageRangeInterface
+     * @throws MvLabsMultilanguage\Exception\LanguageRangeNotDetectedException
      */
     public function detectLanguageRange(Request $request);
 }

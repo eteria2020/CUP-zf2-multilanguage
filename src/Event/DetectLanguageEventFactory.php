@@ -1,6 +1,6 @@
 <?php
 
-namespace MvLabs\Multilanguage\Event;
+namespace MvLabsMultilanguage\Event;
 
 use Zend\Http\Request;
 

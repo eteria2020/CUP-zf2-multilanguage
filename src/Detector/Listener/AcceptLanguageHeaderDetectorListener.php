@@ -1,9 +1,9 @@
 <?php
 
-namespace MvLabs\Multilanguage\Detector\Listener;
+namespace MvLabsMultilanguage\Detector\Listener;
 
-use MvLabs\Multilanguage\LanguageRange\LanguageRange;
-use MvLabs\Multilanguage\Event\DetectLanguageEventInterface;
+use MvLabsMultilanguage\LanguageRange\LanguageRange;
+use MvLabsMultilanguage\Event\DetectLanguageEventInterface;
 
 use Zend\Http\Header\Accept\FieldValuePart\LanguageFieldValuePart;
 

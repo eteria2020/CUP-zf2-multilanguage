@@ -1,6 +1,6 @@
 <?php
 
-namespace MvLabs\Multilanguage\Exception;
+namespace MvLabsMultilanguage\Exception;
 
 class LanguageRangeNotDetectedException extends \UnexpectedValueException
 {

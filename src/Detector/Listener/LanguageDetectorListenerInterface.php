@@ -1,8 +1,8 @@
 <?php
 
-namespace MvLabs\Multilanguage\Detector\Listener;
+namespace MvLabsMultilanguage\Detector\Listener;
 
-use MvLabs\Multilanguage\Event\DetectLanguageEventInterface;
+use MvLabsMultilanguage\Event\DetectLanguageEventInterface;
 
 interface LanguageDetectorListenerInterface
 {

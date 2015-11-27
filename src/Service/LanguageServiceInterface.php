@@ -1,6 +1,6 @@
 <?php
 
-namespace MvLabs\Multilanguage\Service;
+namespace MvLabsMultilanguage\Service;
 
 interface LanguageServiceInterface
 {

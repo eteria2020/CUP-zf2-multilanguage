@@ -1,8 +1,8 @@
 <?php
 
-namespace MvLabs\Multilanguage\Event;
+namespace MvLabsMultilanguage\Event;
 
-use MvLabs\Multilanguage\LanguageRange\LanguageRange;
+use MvLabsMultilanguage\LanguageRange\LanguageRange;
 
 use Zend\EventManager\EventInterface;
 use Zend\Stdlib\PriorityQueue;

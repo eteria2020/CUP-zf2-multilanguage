@@ -1,6 +1,6 @@
 <?php
 
-namespace Multilanguage;
+namespace MvLabsMultilanguage;
 
 return [
     // we change the default router to allow route translation
@@ -9,19 +9,19 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            'LanguageService' => 'MvLabs\Multilanguage\Service\LanguageServiceFactory',
-            'LanguageDetector' => 'MvLabs\Multilanguage\Detector\LanguageDetectorFactory',
-            'DetectLanguageRangeListener' => 'MvLabs\Multilanguage\Detector\Listener\DetectLanguageRangeListenerFactory',
-            'DetectorListenerPluginManager' => 'MvLabs\Multilanguage\Detector\Listener\DetectorListenerPluginManagerFactory'
+            'LanguageService' => 'MvLabsMultilanguage\Service\LanguageServiceFactory',
+            'LanguageDetector' => 'MvLabsMultilanguage\Detector\LanguageDetectorFactory',
+            'DetectLanguageRangeListener' => 'MvLabsMultilanguage\Detector\Listener\DetectLanguageRangeListenerFactory',
+            'DetectorListenerPluginManager' => 'MvLabsMultilanguage\Detector\Listener\DetectorListenerPluginManagerFactory'
         ]
     ],
     'language_detector_listeners' => [
         'invokables' => [
-            'AcceptLanguageHeaderDetectorListener' => 'MvLabs\Multilanguage\Detector\Listener\AcceptLanguageHeaderDetectorListener',
-            'ReturnFirstValueDetectorListener' => 'MvLabs\Multilanguage\Detector\Listener\ReturnFirstValueDetectorListener'
+            'AcceptLanguageHeaderDetectorListener' => 'MvLabsMultilanguage\Detector\Listener\AcceptLanguageHeaderDetectorListener',
+            'ReturnFirstValueDetectorListener' => 'MvLabsMultilanguage\Detector\Listener\ReturnFirstValueDetectorListener'
         ],
         'factories' => [
-            'FilterByConfigurationDetectorListener' => 'MvLabs\Multilanguage\Detector\Listener\FilterByConfigurationDetectorListenerFactory'
+            'FilterByConfigurationDetectorListener' => 'MvLabsMultilanguage\Detector\Listener\FilterByConfigurationDetectorListenerFactory'
         ]
     ]
 ];

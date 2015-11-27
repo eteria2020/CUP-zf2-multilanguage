@@ -1,6 +1,6 @@
 <?php
 
-namespace MvLabs\Multilanguage\Service;
+namespace MvLabsMultilanguage\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

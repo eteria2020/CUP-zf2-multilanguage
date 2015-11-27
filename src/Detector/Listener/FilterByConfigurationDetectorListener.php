@@ -1,9 +1,9 @@
 <?php
 
-namespace MvLabs\Multilanguage\Detector\Listener;
+namespace MvLabsMultilanguage\Detector\Listener;
 
-use MvLabs\Multilanguage\Languagerange\LanguageRange;
-use MvLabs\Multilanguage\Event\DetectLanguageEventInterface;
+use MvLabsMultilanguage\Languagerange\LanguageRange;
+use MvLabsMultilanguage\Event\DetectLanguageEventInterface;
 
 use Zend\Stdlib\PriorityQueue;
 

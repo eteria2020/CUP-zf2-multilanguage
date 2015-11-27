@@ -1,8 +1,8 @@
 <?php
 
-namespace MvLabs\Multilanguage\Detector\Listener;
+namespace MvLabsMultilanguage\Detector\Listener;
 
-use MvLabs\Multilanguage\Exception\DetectorListenerNotFoundException;
+use MvLabsMultilanguage\Exception\DetectorListenerNotFoundException;
 
 use Zend\ServiceManager\AbstractPluginManager;
 
