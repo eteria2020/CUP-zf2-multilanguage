@@ -27,7 +27,8 @@ class Module
                 // the url translation
                 $e->getRouter()->setTranslator($languageService->getTranslator(), 'routes');
 
-                //set translator to be used when translating form error messages
+                // moreover, we set the translator to be used when translating
+                // form error messages
                 AbstractValidator::setDefaultTranslator($languageService->getTranslator());
             },
             100

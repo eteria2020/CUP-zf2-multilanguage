@@ -37,6 +37,7 @@ class LanguageRange implements LanguageRangeInterface
      * static constructor from a string representation of the LanguageRange
      *
      * @param string $languageRange
+     * @return static
      */
     public static function fromString($languageRange)
     {
@@ -62,6 +63,11 @@ class LanguageRange implements LanguageRangeInterface
         return $this->country;
     }
 
+    /**
+     * returns the default locale for a language range
+     *
+     * @return string
+     */
     public function defaultLocale()
     {
         return strtolower($this->language) .

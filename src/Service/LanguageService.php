@@ -16,7 +16,7 @@ class LanguageService implements LanguageServiceInterface
     private $translator;
 
     /**
-     * @var MvLabsMultilanguage\Detector\LanguageDetectorInterface $languageDetector
+     * @var LanguageDetectorInterface $languageDetector
      */
     private $languageDetector;
 
@@ -41,8 +41,11 @@ class LanguageService implements LanguageServiceInterface
     public function setLanguageFromRequest($request)
     {
         try {
+            // we ask the language detector to retrieve the correct language
+            // range
             $languageRange = $this->languageDetector->detectLanguageRange($request);
 
+            // we set the correct locale fot the Mvc Translator
             $this->translator->setLocale($languageRange->defaultLocale());
         } catch (LanguageRangeNotDetectedException $e) {
             // we throw an event if somebody wants to react on it

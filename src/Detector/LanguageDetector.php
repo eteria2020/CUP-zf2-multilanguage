@@ -2,7 +2,7 @@
 
 namespace MvLabsMultilanguage\Detector;
 
-use MvLabsMultilanguage\LanguageRange\LanguageRange;
+use MvLabsMultilanguage\LanguageRange\LanguageRangeInterface;
 use MvLabsMultilanguage\Exception\LanguageRangeNotDetectedException;
 use MvLabsMultilanguage\Event\DetectLanguageEventFactory;
 
@@ -29,8 +29,13 @@ class LanguageDetector implements LanguageDetectorInterface
      */
     public function detectLanguageRange(Request $request)
     {
+        // we create a DetectLanguageEvent
+        // it will be used to keep track of the progress in the definition of
+        // the language range to be used
         $event = DetectLanguageEventFactory::createEvent($request);
 
+        // we throw an event to detect the correct language range
+        // the listeners of this event will actually perform the hard work
         $languageRanges = $this->events->trigger(
             __FUNCTION__,
             $this,
@@ -38,6 +43,7 @@ class LanguageDetector implements LanguageDetectorInterface
             [$this, 'detectorCallback']
         );
 
+        // if no language was detected we throw an exception
         if (!$languageRanges->stopped()) {
             throw new LanguageRangeNotDetectedException();
         }
@@ -47,7 +53,7 @@ class LanguageDetector implements LanguageDetectorInterface
 
     /**
      * checks if the returned result of an attached callback to the event
-     * triggered if the detectLanguageRange method is a Language range and in
+     * triggered if the detectLanguageRange method is a LanguageRange and in
      * that case it stops the propagation of the event
      *
      * @param mixed $result
@@ -55,6 +61,6 @@ class LanguageDetector implements LanguageDetectorInterface
      */
     public function detectorCallback($result)
     {
-        return $result instanceof LanguageRange;
+        return $result instanceof LanguageRangeInterface;
     }
 }

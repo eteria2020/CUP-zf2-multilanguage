@@ -7,6 +7,10 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class DetectLanguageRangeListenerFactory implements FactoryInterface
 {
+    /**
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return DetectLanguageRangeListener
+     */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $configListeners = $serviceLocator->get('Config')['multilanguage']['listeners'];

@@ -11,6 +11,7 @@ class ReturnFirstValueDetectorListener implements LanguageDetectorListenerInterf
      */
     public function detectLanguage(DetectLanguageEventInterface $event)
     {
+        // just return the language range with the highest priority
         return $event->getLanguageRanges()->top();
     }
 }

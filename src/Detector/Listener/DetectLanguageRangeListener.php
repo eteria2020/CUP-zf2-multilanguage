@@ -6,6 +6,11 @@ use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
 use Zend\EventManager\EventManagerInterface;
 
+/**
+ * the responsability of this class is to attach all the configured listeners
+ * to the 'detectLanguageRange' event, so they are triggered to determine the
+ * correct language range
+ */
 class DetectLanguageRangeListener implements ListenerAggregateInterface
 {
     use ListenerAggregateTrait;
@@ -23,6 +28,7 @@ class DetectLanguageRangeListener implements ListenerAggregateInterface
 
     /**
      * @param array $configListeners
+     * @param DetectorListenerPluginManager $detectorListenerPluginManager
      */
     public function __construct(
         array $configListeners,

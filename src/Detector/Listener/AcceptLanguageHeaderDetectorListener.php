@@ -21,13 +21,17 @@ class AcceptLanguageHeaderDetectorListener implements LanguageDetectorListenerIn
         $request = $event->getRequest();
         $headers = $request->getHeaders();
 
+        // if the request doesn't have an Accept-Language header, we don't
+        // modify the language ranges of the event
         if (!$headers->has('Accept-Language')) {
             return $event->getLanguageRanges();
         }
 
         $languageRangesArray = $headers->get('Accept-Language')->getPrioritized();
 
+        // we cycle throush the retrieved language ranges, ordered by priority
         foreach ($languageRangesArray as $languageRange) {
+            // and we add them to the event
             $this->addLanguageRange($event, $languageRange);
         }
 
@@ -44,6 +48,7 @@ class AcceptLanguageHeaderDetectorListener implements LanguageDetectorListenerIn
         $priority = $languageRange->getPriority() * 100;
         $languageRange = LanguageRange::fromString($languageRange->getLanguage());
 
+        // if they are already present we first remove them to avoid duplicates
         if ($event->hasLanguageRange($languageRange)) {
             $event->removeLanguageRange($languageRange);
         }

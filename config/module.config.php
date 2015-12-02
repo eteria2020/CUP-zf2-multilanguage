@@ -15,6 +15,7 @@ return [
             'DetectorListenerPluginManager' => 'MvLabsMultilanguage\Detector\Listener\DetectorListenerPluginManagerFactory'
         ]
     ],
+    // listeners used to detect the language range
     'language_detector_listeners' => [
         'invokables' => [
             'AcceptLanguageHeaderDetectorListener' => 'MvLabsMultilanguage\Detector\Listener\AcceptLanguageHeaderDetectorListener',

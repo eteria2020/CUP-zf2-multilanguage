@@ -11,7 +11,7 @@ class LanguageServiceFactory implements FactoryInterface
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return Multilanguage\Service\LanguageService
+     * @return LanguageService
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

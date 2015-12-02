@@ -35,6 +35,8 @@ class FilterByConfigurationDetectorListener implements LanguageDetectorListenerI
         $languageRanges = $event->getLanguageRanges();
         $languageRangesWithPriority = $languageRanges->toArray(PriorityQueue::EXTR_BOTH);
 
+        // we instantiate a new priority queue to keep track of the filtered
+        // language ranges
         $filteredLanguageRanges = new PriorityQueue();
 
         foreach ($languageRangesWithPriority as $languageRangeWithPriority) {

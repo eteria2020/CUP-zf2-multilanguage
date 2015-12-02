@@ -7,11 +7,11 @@ use Zend\Http\Request;
 interface LanguageDetectorInterface
 {
     /**
-     * retrieves the locale from the Http request
-     * if the locale is not retrieved a LanguageRangeNotDetectedException is
-     * thrown
+     * retrieves the language range from the Http request
+     * if the language range is not retrieved a
+     * LanguageRangeNotDetectedException is thrown
      *
-     * @param Zend\Http\Request
+     * @param Request
      * @return MvLabsMultilanguage\LanguageRange\LanguageRangeInterface
      * @throws MvLabsMultilanguage\Exception\LanguageRangeNotDetectedException
      */
