@@ -20,6 +20,9 @@
     "autoload": {
         "psr-4": {
             "MvLabsMultilanguage\\": "src/"
-        }
+        },
+        "classmap": [
+            "./Module.php"
+        ]
     }
 }
