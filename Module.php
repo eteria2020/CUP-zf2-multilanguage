@@ -15,6 +15,12 @@ class Module
         $serviceManager = $e->getApplication()->getServiceManager();
         $languageService = $serviceManager->get('LanguageService');
 
+        // we try to detect the language only if the request is an Http request.
+        // We do not consider console requests
+        if (!$e->getRequest() instanceof HttpRequest) {
+            return;
+        }
+
         // before the routing happens we assign to the router a translator so
         // that we can translate urls
         $eventManager->attach(

@@ -2,6 +2,8 @@
 
 namespace MvLabsMultilanguage\Service;
 
+use Zend\Http\Request;
+
 /*
  * This service is the starting point of the module.
  * It interacts with the Mvc Translator the set the correct language to be used
@@ -15,7 +17,7 @@ interface LanguageServiceInterface
      *
      * @param Zend\Http\Request
      */
-    public function setLanguageFromRequest($request);
+    public function setLanguageFromRequest(Request $request);
 
     /**
      * returns the used instance of the Mvc Translator

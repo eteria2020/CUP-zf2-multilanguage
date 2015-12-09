@@ -5,6 +5,7 @@ namespace MvLabsMultilanguage\Service;
 use MvLabsMultilanguage\Exception\LanguageRangeNotDetectedException;
 use MvLabsMultilanguage\Detector\LanguageDetectorInterface;
 
+use Zend\Http\Request;
 use Zend\Mvc\I18n\Translator;
 use Zend\EventManager\EventManagerInterface;
 
@@ -38,7 +39,7 @@ class LanguageService implements LanguageServiceInterface
     /**
      * @inheritdoc
      */
-    public function setLanguageFromRequest($request)
+    public function setLanguageFromRequest(Request $request)
     {
         try {
             // we ask the language detector to retrieve the correct language
