@@ -79,7 +79,8 @@ class FilterByConfigurationDetectorListener implements LanguageDetectorListenerI
                 // country, if they have the same country
                 $return = $allowedLanguageRange->language() === $languageRange->language();
 
-                if (!empty($languageRange->country())) {
+                $country = $languageRange->country();
+                if (!empty($country)) {
                     $return = $return &&
                         $allowedLanguageRange->country() === $languageRange->country();
                 }
