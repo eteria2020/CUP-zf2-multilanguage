@@ -23,6 +23,8 @@ In the configuration file you will find two things:
 
 - `listeners` allows to determine the strategy used to determine the correct language range to be used for the application. Every listener performs a step of the strategy.
 
+For the module to work, you will also need to define the `translator` key in the configuration, as it usually defined for the `I18n` tools.
+
 Components
 ----------
 
