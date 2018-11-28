@@ -65,4 +65,17 @@ class LanguageService implements LanguageServiceInterface
     {
         return $this->translator;
     }
+
+    /**
+     * retrieves and returns the language used by the application form the
+     * used locale
+     *
+     * @return string two-characters format
+     */
+    public function getLanguage()
+    {
+        $locale = $this->translator->getLocale();
+        return strtok($locale, '_');
+    }
+
 }
